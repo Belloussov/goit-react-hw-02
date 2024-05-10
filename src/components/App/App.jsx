@@ -3,7 +3,7 @@ import Description from "../Description/Description";
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
 import Notification from "../Notification/Notification";
-import css from "./App.module.css"
+import css from "./App.module.css";
 
 const getFeedback = () => {
   const savedFeedback = localStorage.getItem("feedback");
@@ -43,11 +43,15 @@ export default function App() {
         handelReset={handelReset}
         totalFeedback={totalFeedback}
       />
-      {totalFeedback > 0 ? 
-        <Feedback feedback={feedback} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} />
-       : 
+      {totalFeedback > 0 ? (
+        <Feedback
+          feedback={feedback}
+          totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
+        />
+      ) : (
         <Notification />
-      }
+      )}
     </div>
   );
 }
